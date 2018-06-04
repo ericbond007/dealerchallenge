@@ -8,8 +8,7 @@ const API_URL = 'https://api.behance.net/v2/users/'
 class Search extends Component {
 
   state = {
-    query: '',
-    results: []
+    query: ''
   }
 
   handleInputChange = () => {
@@ -29,16 +28,15 @@ class Search extends Component {
       .then(response => response.json())
       .then(json => {
         console.log(json);
-        this.setState({ 
-          results: json.user
-        })
+        this.props.userData(json.user)
       })
   }
+
 
   render() {
     return (
       <div>
-      <form>
+      <form role="form" onSubmit={this.props.handleSubmit}>
   <div className="field">
     <div className="control">
       <input 
@@ -54,7 +52,7 @@ class Search extends Component {
       </div>
     </div>
     <div className="control">
-    <button className="button is-link">Submit</button>
+      <button type="submit" className="button is-link">Submit</button>
   </div>
     </form>
   </div>
