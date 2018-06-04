@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import fetchJsonp from 'fetch-jsonp';
 
-const { API_KEY } = 'ThT7HRFyNjMhhdl3oakD7Cyc29LvTgjG'
+const API_KEY = 'ThT7HRFyNjMhhdl3oakD7Cyc29LvTgjG'
 const API_URL = 'https://api.behance.net/v2/users/'
+
 
 class Search extends Component {
 
@@ -16,20 +17,21 @@ class Search extends Component {
       query: this.search.value
     }, () => {
       if (this.state.query && this.state.query.length > 1) {
-        if (this.state.query.length % 2 === 0) {
-          this.getUser()
+        if (this.state.query.length % 2 === 0 || this.state.query.length > 1) {
+          this.fetchUser()
         }
       } 
     })
   }
 
-
-  getUser = () => {
-    axios.get(`${API_URL}${this.state.query}?api_key=${API_KEY}`)
-      .then(({ data }) => {
-        this.setState({
-          results: data
-      })
+  fetchUser = () => {
+    fetchJsonp(`${API_URL}${this.state.query}?api_key=${API_KEY}`)
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+        this.setState({ 
+          results: json.user
+        })
       })
   }
 
@@ -51,8 +53,8 @@ class Search extends Component {
       </p>
       </div>
     </div>
-    <div class="control">
-    <button class="button is-link">Submit</button>
+    <div className="control">
+    <button className="button is-link">Submit</button>
   </div>
     </form>
   </div>
