@@ -7,7 +7,7 @@ const Profile = ({user}) => (
     <div className="card">
       <div className="card-image">
         <figure className="image is-128x128">
-          <img src={user.images["230"]} />
+          <img src={user.images["238"]} />
         </figure>
       </div>
       <div className="card-content">

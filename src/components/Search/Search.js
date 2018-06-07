@@ -24,8 +24,16 @@ class Search extends Component {
     })
   }
 
+  handleAPIError = (response) => {
+    if (!response.ok) {
+      this.badResponse(response)
+    }
+    return response;
+  }
+
   fetchUser = () => {
     fetchJsonp(`${API_URL}${this.state.query}?api_key=${API_KEY}`)
+      .then(this.handleAPIError) 
       .then(response => response.json())
       .then(json => {
         this.props.userData(json.user)

@@ -6,8 +6,8 @@ class Home extends Component {
 
   state = {
     submitted: false,
-    results: [],
-    projects: [] 
+    badresponse: false,
+    results: []
   }
 
   handleSubmit(e) {
@@ -29,6 +29,15 @@ class Home extends Component {
       submitted: false
     })
   }
+
+  badResponse(response) {
+    this.setState({
+      badresponse: true,
+      responsedata: response
+    })
+  }
+
+  
   render() {
     return (
       <div>
@@ -40,9 +49,9 @@ class Home extends Component {
           <div className="column is-half">
             <UserProfile user={this.state.results}/>
           </div>
-      </div>
+        </div>
           :
-        <Search handleSubmit={this.handleSubmit.bind(this)} userData={this.userData.bind(this)} />
+        <Search handleSubmit={this.handleSubmit.bind(this)} userData={this.userData.bind(this)} badResponse={this.badResponse.bind(this)} />
           }
       </div>
     );

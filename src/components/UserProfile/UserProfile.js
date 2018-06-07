@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Profile from './Profile';
 import Projects from './Projects';
 import fetchJsonp from 'fetch-jsonp';
+import PropTypes from 'prop-types';
 
 const API_KEY = 'ThT7HRFyNjMhhdl3oakD7Cyc29LvTgjG'
 const API_URL = 'https://api.behance.net/v2/projects/'
@@ -10,14 +11,16 @@ class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: [],
+      projects: []
     }
   }
 
-  setUserProjects(projects) {
+  setUserProjects(projectArray) {
     this.setState({
-      projects: projects
+      projects: projectArray
     })
+    console.log(projectArray)
+    console.log('setting projectArray')
   }
 
   
@@ -37,15 +40,6 @@ class UserProfile extends Component {
     this.setUserProjects(projectArray)
   }
 
-  fetchOneProject = () => {
-    fetchJsonp(`${API_URL}47885859?api_key=${API_KEY}`)
-      .then(response => response.json())
-      .then(json => {
-        this.setState({ 
-          projects: json
-        })
-      })
-  }
 
     componentDidMount() {
       this.fetchUserProjects(this.props.user);
@@ -55,10 +49,16 @@ class UserProfile extends Component {
     return (
       <div>
       <Profile user={this.props.user} />
+      {(this.state.projects) ?
       <Projects projects={this.state.projects} />
+      : null }
     </div>
     )
   }
 }
+
+UserProfile.propTypes = {
+  user: PropTypes.object
+};
 
 export default UserProfile;
