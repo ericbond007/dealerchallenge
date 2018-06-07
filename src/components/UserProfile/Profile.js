@@ -14,7 +14,10 @@ const Profile = ({user}) => (
         <div className="media-content">
           <p>{user.display_name}</p>
           <p><a rel="noopener noreferrer" target="_blank" href={'https://behance.net/' + user.username}>@{user.username}</a></p>
-    <p>Links: <a rel="noopener noreferrer" target="_blank" href={user.links[0].url}>{user.links[0].title}</a></p>
+          <p>{user.occupation}</p>
+          <p>{user.company}</p>
+          <p>{user.city}, {user.country}</p>
+    <p><a rel="noopener noreferrer" target="_blank" href={user.links[0].url}>{user.links[0].title}</a></p>
 
         </div>
       </div>
@@ -59,10 +62,10 @@ const Profile = ({user}) => (
 
     <p>Projects:</p>
     <ul>
-    {user.features.map(feature => (
-    <li key={feature.id}>
-        <a href={feature.site.url}>
-          <img src={feature.site.ribbon.image} />
+    {user.features.map((feature, i) => (
+    <li key={i}>
+        <a href={feature.site.url} key={i}>
+          <img src={feature.site.ribbon.image} key={i} />
           {feature.site.name}
         </a>
     </li>

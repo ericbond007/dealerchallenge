@@ -6,7 +6,8 @@ class Home extends Component {
 
   state = {
     submitted: false,
-    results: []
+    results: [],
+    projects: [] 
   }
 
   handleSubmit(e) {
