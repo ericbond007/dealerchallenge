@@ -6,8 +6,8 @@ class Home extends Component {
 
   state = {
     submitted: false,
-    badresponse: false,
-    results: []
+    results: [],
+    projects: []
   }
 
   handleSubmit(e) {
@@ -23,17 +23,16 @@ class Home extends Component {
     })
   }
 
+  userProjects(projectArray) {
+    this.setState({
+      projects: projectArray
+    })
+  }
+
   newSearch(e) {
     e.preventDefault();
     this.setState({ 
       submitted: false
-    })
-  }
-
-  badResponse(response) {
-    this.setState({
-      badresponse: true,
-      responsedata: response
     })
   }
 
@@ -51,7 +50,7 @@ class Home extends Component {
           </div>
         </div>
           :
-        <Search handleSubmit={this.handleSubmit.bind(this)} userData={this.userData.bind(this)} badResponse={this.badResponse.bind(this)} />
+        <Search handleSubmit={this.handleSubmit.bind(this)} userData={this.userData.bind(this)} userProjects={this.userProjects.bind(this)} />
           }
       </div>
     );

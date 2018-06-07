@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-const Profile = ({user}) => (
+const Profile = ({user, projects}) => (
   <div>
     User Profile
     <div className="card">
       <div className="card-image">
         <figure className="image is-128x128">
-          <img src={user.images["238"]} />
+          <img src={user.images["276"]} />
         </figure>
       </div>
       <div className="card-content">
@@ -60,7 +60,7 @@ const Profile = ({user}) => (
 
     </div>
 
-    <p>Projects:</p>
+    <p>Featured:</p>
     <ul>
     {user.features.map((feature, i) => (
     <li key={i}>
@@ -71,7 +71,6 @@ const Profile = ({user}) => (
     </li>
     ))}
   </ul>
-
 
   </div>
 )

@@ -48,7 +48,7 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-      <Profile user={this.props.user} />
+      <Profile user={this.props.user} projects={this.state.projects} />
       {(this.state.projects) ?
       <Projects projects={this.state.projects} />
       : null }

@@ -3,11 +3,11 @@ import React from 'react';
 
 const Projects = ({projects}) => (
   <div>
-    <p>Projects:</p>
+    <p>ProjectS:</p>
     <ul>
       {projects.map((project, i) => (
       <li key={i}>
-        {project.http_code}
+        {project.description}
       </li>
       ))}
     </ul>

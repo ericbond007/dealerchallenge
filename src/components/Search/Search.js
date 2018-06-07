@@ -7,10 +7,14 @@ const API_URL = 'https://api.behance.net/v2/users/'
 
 
 class Search extends Component {
-
-  state = {
+  constructor(props) {
+    super(props);
+  this.state = {
     query: ''
   }
+
+  }
+
 
   handleInputChange = () => {
     this.setState({
@@ -24,21 +28,34 @@ class Search extends Component {
     })
   }
 
-  handleAPIError = (response) => {
-    if (!response.ok) {
-      this.badResponse(response)
-    }
-    return response;
+
+
+  fetchUserProjects = ( user ) => {
+    const projectArray = [];
+    {user.features.filter((i, index) => (index < 3))
+                  .map(feature => (
+          feature.projects.filter((i, index) => (index < 3))
+                          .map(project => (
+          fetchJsonp(`${API_URL}${project.id}?api_key=${API_KEY}`)
+            .then(response => response.json())
+            .then(json => {
+              projectArray.push(json)
+            })
+      ))
+    ))}
+    this.props.userProjects(projectArray)
   }
 
   fetchUser = () => {
     fetchJsonp(`${API_URL}${this.state.query}?api_key=${API_KEY}`)
-      .then(this.handleAPIError) 
       .then(response => response.json())
       .then(json => {
         this.props.userData(json.user)
+        console.log(json.user);
+        {/*this.fetchUserProjects(json.user)*/}
       })
   }
+
 
 
   render() {
