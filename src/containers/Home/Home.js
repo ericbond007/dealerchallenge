@@ -32,9 +32,13 @@ class Home extends Component {
     return (
       <div>
         {this.state.submitted ?
-        <div>
-        <h2 onClick={this.newSearch.bind(this)}>New Search</h2>
-        <UserProfile user={this.state.results}/>
+        <div className="columns">
+          <div className="column is-one-fifth">
+            <h2 onClick={this.newSearch.bind(this)}>New Search</h2>
+          </div>
+          <div className="column is-half">
+            <UserProfile user={this.state.results}/>
+          </div>
       </div>
           :
         <Search handleSubmit={this.handleSubmit.bind(this)} userData={this.userData.bind(this)} />

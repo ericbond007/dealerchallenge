@@ -1,34 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Profile from './Profile';
+import fetchJsonp from 'fetch-jsonp';
 
-const UserProfile = ({user}) => (
-  <div>
-    User Profile
-    <p>Name {user.display_name}</p>
-    <p>User Name {user.username}</p>
-    <img src={user.images["230"]} />
-    <p>About Me: {user.sections["About Me"]}</p>
-    <p>Stats</p>
-    <p>Appreciations: {user.stats.appreciations}</p>
-    <p>Comments: {user.stats.comments}</p>
-    <p>Followers: {user.stats.followers}</p>
-    <p>Following: {user.stats.following}</p>
-    <p>Team Members: {user.stats.team_members}</p>
-    <p>Views: {user.stats.views}</p>
-    <p>Projects:</p>
-    <ul>
+const API_KEY = 'ThT7HRFyNjMhhdl3oakD7Cyc29LvTgjG'
+const API_URL = 'https://api.behance.net/v2/projects/'
+
+class UserProfile extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      projects: [],
+    }
+  }
+
+  
+  fetchUserProjects = ({ user }) => {
+  const projectArray = [];
     {user.features.map(feature => (
-    <li key={feature.id}>
-        <a href={feature.site.url}>
-          <img src={feature.site.ribbon.image} />
-          {feature.site.name}
-        </a>
-    </li>
-    ))}
-  </ul>
+      feature.projects.map(project => (
+        projectArray.push(fetchJsonp(`${API_URL}${project}?api_key=${API_KEY}`))
+      ))
+    ))}  
+    console.log(projectArray);
+    this.setState({ 
+      projects: projectArray
+    })
+  }
 
+    ComponentDidMount(user) {
+      this.fetchUserProjects(user);
+    }
 
-    <p>Links: <a rel="noopener noreferrer" target="_blank" href={user.links[0].url}>{user.links[0].title}</a></p>
-  </div>
-)
+  render() {
+    return (
+      <Profile user={this.props.user} />
+    )
+  }
+}
 
-export default UserProfile
+export default UserProfile;
