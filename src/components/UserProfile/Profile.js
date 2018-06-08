@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Profile = ({user, projects}) => (
+const Profile = ({user}) => (
   <div>
     User Profile
     <div className="card">

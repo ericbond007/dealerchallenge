@@ -4,13 +4,15 @@ import React from 'react';
 const Projects = ({projects}) => (
   <div>
     <p>ProjectS:</p>
-    <ul>
+    <div className="tile is-ancestor">
       {projects.map((project, i) => (
-      <li key={i}>
-        {project.description}
-      </li>
+      <div className="tile is-child" key={i}>
+      <a href={project.project.url}>
+        {project.project.name}
+    </a>
+      </div>
       ))}
-    </ul>
+    </div>
 
 
   </div>

@@ -36,6 +36,12 @@ class Home extends Component {
     })
   }
 
+  searchFailed() {
+    this.setState({ 
+      submitted: false
+    })
+  }
+
   
   render() {
     return (
@@ -46,11 +52,11 @@ class Home extends Component {
             <h2 onClick={this.newSearch.bind(this)}>New Search</h2>
           </div>
           <div className="column is-half">
-            <UserProfile user={this.state.results}/>
+            <UserProfile user={this.state.results} projects={this.state.projects} />
           </div>
         </div>
           :
-        <Search handleSubmit={this.handleSubmit.bind(this)} userData={this.userData.bind(this)} userProjects={this.userProjects.bind(this)} />
+        <Search handleSubmit={this.handleSubmit.bind(this)} userData={this.userData.bind(this)} userProjects={this.userProjects.bind(this)} searchFailed={this.searchFailed.bind(this)} />
           }
       </div>
     );
