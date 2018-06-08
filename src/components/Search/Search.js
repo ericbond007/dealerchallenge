@@ -56,6 +56,7 @@ class Search extends Component {
                     })
                   ))
     this.props.userProjects(projectArray)
+  }
 
   fetchUser = () => {
     fetchJsonp(`${API_USERS_URL}${this.state.query}?api_key=${API_KEY}`)
@@ -65,6 +66,7 @@ class Search extends Component {
         this.fetchUserProjects(json.user.features)
       })
   }
+  
 
 
 
