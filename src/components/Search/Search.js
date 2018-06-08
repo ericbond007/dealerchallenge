@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import fetchJsonp from 'fetch-jsonp';
 import './Search.css';
 import PropTypes from 'prop-types';
-import normalize from 'json-api-normalizer';
 
 const API_KEY = 'ThT7HRFyNjMhhdl3oakD7Cyc29LvTgjG'
 const API_USERS_URL = 'https://api.behance.net/v2/users/'
@@ -47,7 +46,6 @@ class Search extends Component {
                             projectIDArray.push(project.id)
                           ))
     ))}
-    console.log(projectIDArray);
 
     projectIDArray.filter((i, index) => (index < 7))
                   .map(id => (
@@ -58,8 +56,6 @@ class Search extends Component {
                     })
                   ))
     this.props.userProjects(projectArray)
-                      console.log(projectArray)
-  }
 
   fetchUser = () => {
     fetchJsonp(`${API_USERS_URL}${this.state.query}?api_key=${API_KEY}`)

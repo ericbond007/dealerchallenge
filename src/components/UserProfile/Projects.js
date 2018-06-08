@@ -1,18 +1,19 @@
 import React from 'react';
+import './Projects.css';
 
 
 const Projects = ({projects}) => (
   <div>
-    <p>ProjectS:</p>
-    <div className="tile is-ancestor">
+    <p>Projects:</p>
+    <ul>
       {projects.map((project, i) => (
-      <div className="tile is-child" key={i}>
-      <a href={project.project.url}>
+      <li className="projectsList" key={i}>
+      <a rel="noopener noreferrer" target="_blank" href={project.project.url}>
         {project.project.name}
     </a>
-      </div>
+      </li>
       ))}
-    </div>
+    </ul>
 
 
   </div>

@@ -64,7 +64,7 @@ const Profile = ({user}) => (
     <ul>
     {user.features.map((feature, i) => (
     <li key={i}>
-        <a href={feature.site.url} key={i}>
+        <a rel="noopener noreferrer" target="_blank" href={feature.site.url} key={i}>
           <img src={feature.site.ribbon.image} key={i} />
           {feature.site.name}
         </a>
