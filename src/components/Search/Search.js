@@ -76,6 +76,7 @@ class Search extends Component {
           <div className="column is-one-third">
           </div>
         <div className="column is-one-third">
+          <p>Search for Behance Users</p>
           <form role="form" onSubmit={this.props.handleSubmit}>
             <div className="field">
               <div className="control">

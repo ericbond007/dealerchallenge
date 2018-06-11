@@ -46,6 +46,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <p>HomePage</p>
         {this.state.submitted ?
         <div className="columns">
           <div className="column is-one-fifth">
