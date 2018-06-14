@@ -3,18 +3,26 @@ import Search from '../../components/Search/Search'
 import UserProfile from '../../components/UserProfile/UserProfile'
 
 class Home extends Component {
+  constructor(props) {
+    super(props)
+    this
+  }
 
   state = {
     submitted: false,
     results: [],
-    projects: []
+    projects: [],
+    failed: false
   }
 
   handleSubmit(e) {
+    if (this.state.failed) {
+    } else {
     e.preventDefault();
     this.setState({ 
       submitted: true
     })
+    }
   }
 
   userData(user) {
@@ -38,7 +46,7 @@ class Home extends Component {
 
   searchFailed() {
     this.setState({ 
-      submitted: false
+      failed: true
     })
   }
 

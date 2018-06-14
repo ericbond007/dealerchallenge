@@ -25,10 +25,27 @@ class Search extends Component {
       query: this.search.value
     }, () => {
       if (this.state.query && this.state.query.length > 1) {
-        if (this.state.query.length % 2 === 0 || this.state.query.length > 1) {
+        if (this.state.query.length > 1) {
           this.fetchUser()
         }
       } 
+    })
+  }
+
+  handleResponse = (response) => {
+    if (response.status === 200) {
+      return response;
+      console.log(response.status);
+    } else {
+      this.setState({
+        query: ''
+      })
+    }
+  }
+
+  queryFailed = () => {
+    this.setState({
+      query: ''
     })
   }
 
@@ -38,8 +55,6 @@ class Search extends Component {
 
     const projectIDArray = [];
     const projectArray = [];
-
-
 
     {features.map(feature => (
           feature.projects.map(project => (
@@ -58,12 +73,28 @@ class Search extends Component {
     this.props.userProjects(projectArray)
   }
 
+  checkResponse = (response) => {
+    console.log(response);
+    if (response.http_code === 200) {
+      return response;
+    } else {
+        let error = new Error(response.status)
+        error.respone = response
+        throw error
+    }
+  }
+
   fetchUser = () => {
     fetchJsonp(`${API_USERS_URL}${this.state.query}?api_key=${API_KEY}`)
       .then(response => response.json())
+      .then(this.checkResponse)
       .then(json => {
         this.props.userData(json.user)
         this.fetchUserProjects(json.user.features)
+      }).catch(error => {
+        this.props.searchFailed()
+        this.queryFailed()
+        console.log("error", error);
       })
   }
   
