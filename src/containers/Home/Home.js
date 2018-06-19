@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import Search from '../../components/Search/Search'
 import UserProfile from '../../components/UserProfile/UserProfile'
+import Failed from '../../components/Search/Failed'
 
 class Home extends Component {
   constructor(props) {
     super(props)
-    this
-  }
-
-  state = {
+  this.state = {
     submitted: false,
     results: [],
     projects: [],
     failed: false
   }
+  }
 
   handleSubmit(e) {
     if (this.state.failed) {
+      e.preventDefault();
     } else {
     e.preventDefault();
     this.setState({ 
@@ -46,7 +46,7 @@ class Home extends Component {
 
   searchFailed() {
     this.setState({ 
-      failed: true
+      failed: !this.state.failed 
     })
   }
 
@@ -58,15 +58,22 @@ class Home extends Component {
         {this.state.submitted ?
         <div className="columns">
           <div className="column is-one-fifth">
-            <h2 onClick={this.newSearch.bind(this)}>New Search</h2>
+            <button>
+              <h2 onClick={this.newSearch.bind(this)}>New Search</h2>
+            </button>
           </div>
           <div className="column is-half">
             <UserProfile user={this.state.results} projects={this.state.projects} />
           </div>
         </div>
           :
+          <div>
         <Search handleSubmit={this.handleSubmit.bind(this)} userData={this.userData.bind(this)} userProjects={this.userProjects.bind(this)} searchFailed={this.searchFailed.bind(this)} />
-          }
+        {this.state.failed && (
+          <Failed failed={this.state.failed}/>
+          )}
+      </div>
+        }
       </div>
     );
   }

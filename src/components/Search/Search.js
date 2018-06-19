@@ -13,10 +13,10 @@ const API_PROJECTS_URL = 'https://api.behance.net/v2/projects/'
 class Search extends Component {
   constructor(props) {
     super(props);
-  this.state = {
-    query: ''
-  }
 
+    this.state = {
+      query: '',
+    }
   }
 
 
@@ -24,26 +24,23 @@ class Search extends Component {
     this.setState({
       query: this.search.value
     }, () => {
-      if (this.state.query && this.state.query.length > 1) {
-        if (this.state.query.length > 1) {
           this.fetchUser()
-        }
-      } 
     })
   }
 
-  handleResponse = (response) => {
+  handleResponse(response) {
     if (response.status === 200) {
       return response;
-      console.log(response.status);
     } else {
       this.setState({
         query: ''
+      }, () => {
+        this.searchFailed()
       })
     }
   }
 
-  queryFailed = () => {
+  queryFailed() {
     this.setState({
       query: ''
     })
@@ -51,8 +48,7 @@ class Search extends Component {
 
 
 
-  fetchUserProjects = ( features ) => {
-
+  fetchUserProjects(features) {
     const projectIDArray = [];
     const projectArray = [];
 
@@ -73,7 +69,7 @@ class Search extends Component {
     this.props.userProjects(projectArray)
   }
 
-  checkResponse = (response) => {
+  checkResponse(response) {
     console.log(response);
     if (response.http_code === 200) {
       return response;
@@ -84,7 +80,7 @@ class Search extends Component {
     }
   }
 
-  fetchUser = () => {
+  fetchUser() {
     fetchJsonp(`${API_USERS_URL}${this.state.query}?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(this.checkResponse)
@@ -133,7 +129,8 @@ class Search extends Component {
 Search.propTypes = {
   handleSubmit: PropTypes.func,
   userData: PropTypes.func,
-  userProjects: PropTypes.func
+  userProjects: PropTypes.func,
+  searchFailed: PropTypes.func
 }
 
 export default Search;

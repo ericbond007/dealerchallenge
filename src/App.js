@@ -4,9 +4,7 @@ import './App.css';
 import 'bulma/css/bulma.css';
 
 const App = () => (
-  <div>
-    <Home />
-  </div>
-)
+  <Home />
+  )
 
 export default App;
