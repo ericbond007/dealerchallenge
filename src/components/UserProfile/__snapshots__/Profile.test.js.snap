@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile should render the user profile 1`] = `
+<div>
+  User Profile
+  <div
+    className="card"
+  >
+    <div
+      className="card-image"
+    >
+      <figure
+        className="image is-128x128"
+      >
+        <img
+          src="https://mir-s3-cdn-cf.behance.net/user/276/35f5ee2618569.5aae9e77b28bc.png"
+        />
+      </figure>
+    </div>
+    <div
+      className="card-content"
+    >
+      <div
+        className="media-content"
+      >
+        <p>
+          Caterina Bianchini
+        </p>
+        <p
+          className="username"
+        >
+          <a
+            href="https://behance.net/caterinabianchini"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            @
+            caterinabianchini
+          </a>
+        </p>
+        <p>
+          Creative Director + Designer
+        </p>
+        <p>
+          Caterina Bianchini Studio
+        </p>
+        <p>
+          London
+          , 
+          United Kingdom
+        </p>
+        <p>
+          <a
+            href="http://www.caterinabianchini.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Website
+          </a>
+        </p>
+      </div>
+    </div>
+    <div
+      className="content"
+    >
+      <p>
+        About Me: 
+        Award-winning design studio based in East London. 
+        
+        Projects are approached with conceptual and strategic thinking, creating work that is considered, charismatic and beautiful. Each project challenges current design norms by experimenting with unique typographic layouts and carefully curated colour palettes.
+        
+        Clients include Reebok, Levi's, Diesel, Lush. Red Bull Music Academy, Red Bull Studios, Nike and Adidas.
+        
+        Designer of the year 2018 : Judges Choice Award 
+        Designer of the year 2017 : Judges Choice Award 
+        
+      </p>
+    </div>
+  </div>
+  <div
+    className="level"
+  >
+    <div
+      className="level-item has-text-centered"
+    >
+      <div>
+        <p
+          className="heading"
+        >
+          Appreciations
+        </p>
+        <p
+          className="title"
+        >
+          55360
+        </p>
+      </div>
+    </div>
+    <div
+      className="level-item has-text-centered"
+    >
+      <div>
+        <p
+          className="heading"
+        >
+          Comments
+        </p>
+        <p
+          className="title"
+        >
+          359
+        </p>
+      </div>
+    </div>
+    <div
+      className="level-item has-text-centered"
+    >
+      <div>
+        <p
+          className="heading"
+        >
+          Followers
+        </p>
+        <p
+          className="title"
+        >
+          17472
+        </p>
+      </div>
+    </div>
+    <div
+      className="level-item has-text-centered"
+    >
+      <div>
+        <p
+          className="heading"
+        >
+          Following
+        </p>
+        <p
+          className="title"
+        >
+          1439
+        </p>
+      </div>
+    </div>
+    <div
+      className="level-item has-text-centered"
+    >
+      <div>
+        <p
+          className="heading"
+        >
+          Views
+        </p>
+        <p
+          className="title"
+        >
+          616422
+        </p>
+      </div>
+    </div>
+  </div>
+  <p>
+    Featured:
+  </p>
+  <ul>
+    <li
+      key="0"
+    >
+      <a
+        href="http://www.behance.net"
+        key="0"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          key="0"
+          src="https://a5.behance.net/61a8cf228801cbf07e71b0208c6fdf017d11f7f6/img/galleries/icons/ribbons/1x/network.png"
+        />
+        Behance.net
+      </a>
+    </li>
+    <li
+      key="1"
+    >
+      <a
+        href="https://www.behance.net/galleries/3/Fashion"
+        key="1"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          key="1"
+          src="https://a5.behance.net/61a8cf228801cbf07e71b0208c6fdf017d11f7f6/img/galleries/icons/ribbons/1x/fashion.png?cb=264615658"
+        />
+        Fashion
+      </a>
+    </li>
+    <li
+      key="2"
+    >
+      <a
+        href="https://www.behance.net/galleries/2/Graphic-Design"
+        key="2"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          key="2"
+          src="https://a5.behance.net/61a8cf228801cbf07e71b0208c6fdf017d11f7f6/img/galleries/icons/ribbons/1x/graphic-design.png?cb=264615658"
+        />
+        Graphic Design
+      </a>
+    </li>
+    <li
+      key="3"
+    >
+      <a
+        href="https://www.behance.net/galleries/1/Illustration"
+        key="3"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          key="3"
+          src="https://a5.behance.net/61a8cf228801cbf07e71b0208c6fdf017d11f7f6/img/galleries/icons/ribbons/1x/illustration.png?cb=264615658"
+        />
+        Illustration
+      </a>
+    </li>
+    <li
+      key="4"
+    >
+      <a
+        href="https://www.behance.net/galleries/adobe/4/InDesign"
+        key="4"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          key="4"
+          src="https://a5.behance.net/61a8cf228801cbf07e71b0208c6fdf017d11f7f6/img/galleries/icons/ribbons/1x/indesign.png?cb=264615658"
+        />
+        InDesign
+      </a>
+    </li>
+    <li
+      key="5"
+    >
+      <a
+        href="https://www.behance.net/galleries/adobe/3/Illustrator"
+        key="5"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          key="5"
+          src="https://a5.behance.net/61a8cf228801cbf07e71b0208c6fdf017d11f7f6/img/galleries/icons/ribbons/1x/illustrator.png?cb=264615658"
+        />
+        Illustrator
+      </a>
+    </li>
+  </ul>
+</div>
+`;

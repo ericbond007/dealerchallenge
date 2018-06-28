@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search should render the search bar 1`] = `
+<div
+  className="columns searchBar"
+>
+  <div
+    className="column is-one-third"
+  />
+  <div
+    className="column is-one-third"
+  >
+    <p>
+      Search for Behance Users
+    </p>
+    <form
+      onSubmit={[Function]}
+      role="form"
+    >
+      <div
+        className="field"
+      >
+        <div
+          className="control"
+        >
+          <input
+            className="input"
+            onChange={[Function]}
+            placeholder="Search Behance"
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="control"
+        id="buttoncenter"
+      >
+        <button
+          className="button is-link"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

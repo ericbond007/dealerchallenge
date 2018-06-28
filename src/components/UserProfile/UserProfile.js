@@ -8,7 +8,7 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-      <Profile user={this.props.user} projects={this.props.projects} />
+      <Profile user={this.props.user} />
       {(this.props.projects) ?
       <Projects projects={this.props.projects} />
       : null }
@@ -18,8 +18,8 @@ class UserProfile extends Component {
 }
 
 UserProfile.propTypes = {
-  user: PropTypes.object,
-  projects: PropTypes.array
+  user: PropTypes.object.isRequired,
+  projects: PropTypes.array.isRequired
 };
 
 export default UserProfile;

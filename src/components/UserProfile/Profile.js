@@ -13,7 +13,7 @@ const Profile = ({user}) => (
       <div className="card-content">
         <div className="media-content">
           <p>{user.display_name}</p>
-          <p><a rel="noopener noreferrer" target="_blank" href={'https://behance.net/' + user.username}>@{user.username}</a></p>
+          <p className="username"><a rel="noopener noreferrer" target="_blank" href={'https://behance.net/' + user.username}>@{user.username}</a></p>
           <p>{user.occupation}</p>
           <p>{user.company}</p>
           <p>{user.city}, {user.country}</p>

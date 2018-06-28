@@ -6,12 +6,12 @@ import Failed from '../../components/Search/Failed'
 class Home extends Component {
   constructor(props) {
     super(props)
-  this.state = {
-    submitted: false,
-    results: [],
-    projects: [],
-    failed: false
-  }
+      this.state = {
+        submitted: false,
+        results: [],
+        projects: [],
+        failed: false
+      }
   }
 
   handleSubmit(e) {
@@ -70,7 +70,7 @@ class Home extends Component {
           <div>
         <Search handleSubmit={this.handleSubmit.bind(this)} userData={this.userData.bind(this)} userProjects={this.userProjects.bind(this)} searchFailed={this.searchFailed.bind(this)} />
         {this.state.failed && (
-          <Failed failed={this.state.failed}/>
+          <Failed />
           )}
       </div>
         }

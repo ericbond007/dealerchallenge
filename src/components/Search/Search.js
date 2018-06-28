@@ -7,9 +7,6 @@ const API_KEY = 'ThT7HRFyNjMhhdl3oakD7Cyc29LvTgjG'
 const API_USERS_URL = 'https://api.behance.net/v2/users/'
 const API_PROJECTS_URL = 'https://api.behance.net/v2/projects/'
 
-
-
-
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -28,25 +25,11 @@ class Search extends Component {
     })
   }
 
-  handleResponse(response) {
-    if (response.status === 200) {
-      return response;
-    } else {
-      this.setState({
-        query: ''
-      }, () => {
-        this.searchFailed()
-      })
-    }
-  }
-
   queryFailed() {
     this.setState({
       query: ''
     })
   }
-
-
 
   fetchUserProjects(features) {
     const projectIDArray = [];
@@ -95,8 +78,6 @@ class Search extends Component {
   }
   
 
-
-
   render() {
     return (
       <div className="columns searchBar">
@@ -127,10 +108,10 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-  handleSubmit: PropTypes.func,
-  userData: PropTypes.func,
-  userProjects: PropTypes.func,
-  searchFailed: PropTypes.func
+  handleSubmit: PropTypes.func.isRequired,
+  userData: PropTypes.func.isRequired,
+  userProjects: PropTypes.func.isRequired,
+  searchFailed: PropTypes.func.isRequired
 }
 
 export default Search;
